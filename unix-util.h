@@ -10,7 +10,9 @@ enum ErrorType{
     BIND_ERROR = -2,
     LISTEN_ERROR = -3,
     ACCEPT_ERROR = -4,
-    CONNECT_ERROR = -5
+    CONNECT_ERROR = -5,
+    SEND_ERROR = -6,
+    RECV_ERROR = -7
 };
 
 

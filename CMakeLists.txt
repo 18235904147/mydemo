@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.16)
-project(unix_socket_demo C)
+project(unix_socket_demo)
 
-set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 11)
 
-add_executable(unix_server unix-server.c tlv.c)
+add_executable(unix_server unix-server.cpp tlv.cpp tlv_box.cpp  discunixserver.cpp)
 
-add_executable(unix-client unix-client.c unix-util.h tlv.c tlv.h)
+add_executable(unix-client unix-client.cpp  tlv.cpp tlv_box.cpp discunixclient.cpp)
