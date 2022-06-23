@@ -7,6 +7,7 @@
 #include <unistd.h>
 #include <errno.h>
 #include "unix-util.h"
+#include "tlv.h"
 
 #define QLEN 10
 #define BUF_LEN 1024
@@ -74,7 +75,7 @@ int main(void)
         return -1;
     }
     while (1) {
-        int len = read(client_fd, buf, BUF_LEN);
+        int len = recv_tlv(client_fd, buf, BUF_LEN, 0);
         if (len < 0 ) {
             if (errno == EINTR){
                 continue;

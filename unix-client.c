@@ -9,7 +9,7 @@
 #include <sys/un.h>
 #include <errno.h>
 #include "unix-util.h"
-
+#include "tlv.h"
 
 #define BUF_LEN 1024
 
@@ -44,7 +44,7 @@ int main(void)
     fd = connectServer();
 
     while (fgets(buf, sizeof(buf), stdin) != NULL) {
-        write(fd, buf, strlen(buf));
+        send_tlv(fd, buf, strlen(buf), 0);
     }
     close(fd);
     return 0;
